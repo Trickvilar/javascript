@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidades</title>
+</head>
+
+
+<body>
+    <h1>Brasileiro x Estrangeiro</h1>
+    Seu país: <input type="text" name="pais" id="pais" placeholder="Ex: Paraguai">
+    <input type="button" value="Verificar" onclick="descobrir()">
+    <div id="res"></div>
+
+    <script>
+        function descobrir() {
+            var pais = document.querySelector('#pais')
+            var res = document.querySelector('#res')
+            var nac = pais.value
+            res.innerHTML = `<p>Você está em <strong>${nac}</strong></p>`
+            if (pais == 'Brasil') {
+                res.innerHTML += `Você é Brasileiro!`
+            }
+        }
+    </script>
+</body>
+
+</html>
