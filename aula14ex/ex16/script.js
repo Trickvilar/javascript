@@ -1,18 +1,28 @@
 function contar() {
-    var finicio = document.getElementById('txtinicio')
-    var ffim = document.getElementById('txtfim')
-    var fpasso = document.getElementById('txtpasso')
-    var res = document.getElementById('res')
+    var fi = document.querySelector('#txti')
+    var ff = document.querySelector('#txtf')
+    var fp = document.querySelector('#txtp')
+    var res = document.querySelector('#res')
 
-    if (finicio.value.length == 0 || ffim.value.length == 0 || fpasso.value.length == 0) {
-        alert('ERRO - Faltam Dados!')
-    }else{
-        var inicio = Number(finicio.value)
-        var fim = Number(ffim.value)
-        var passo = Number(fpasso.value)
-        res.innerHTML = '<p>Contando</p>'
-        for(inicio ; inicio <= fim ; inicio+= passo){
-            res.innerHTML+= `${inicio} \u{1F449}`
+    if (fi.value.length == 0 || ff.value.length == 0 || fp.value.length == 0){
+        alert('ERRO Faltam Dados')
+    } else {
+        i = Number(fi.value)
+        f = Number(ff.value)
+        p = Number(fp.value)
+        res.innerHTML = 'Contando<br>'
+        if(p <=0){
+            alert('Passo Inválido! Considerando PASSO 1')
+            p = 1
+        }
+        if (i < f) {
+            for (i; i <= f; i += p) {
+                res.innerHTML += `${i} \u{1F449}`
+            }
+        }else{
+            for(i ; i >= f ; i-=p){
+                res.innerHTML+= `${i} \u{1F449}`
+            }
         }
     }
 }
